@@ -1,0 +1,24 @@
+node_modules/
+dist/
+build/
+*.log
+*.env
+*.env.local
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.cache/
+coverage/
+.nyc_output/
+
+# tesseract language data (downloaded on first run)
+*.traineddata
+# pipeline output (downloaded PDFs + results)
+output/
+
+# local-only fixtures (real land record + session capture) — not published
+Docs/
+*.har
