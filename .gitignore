@@ -1,0 +1,8 @@
+node_modules/
+*.log
+# generated outputs
+*.csv
+*.xlsx
+downloads/
+out/
+.env
