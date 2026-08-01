@@ -25,11 +25,29 @@ is required.
 
 ```bash
 npm install          # (no runtime deps; Node 18+ has global fetch)
-# Extract every survey number in a locality (example: Anna Nagar East revenue villages)
+
+# 1. Extract every survey number in a locality (Anna Nagar East revenue villages) -> xlsx
 node scripts/extract-anna-nagar-east.mjs AnnaNagarEast_SurveyNumbers.xlsx
-# Extract all covered villages/blocks in Chennai district
+
+# 2. Extract all covered villages/blocks in Chennai district -> csv
 node scripts/extract-chennai-district.mjs chennai_survey_numbers.csv
+
+# 3. Extract every village in a taluk, one xlsx per village + index
+node scripts/extract-taluk-villages.mjs ./out
+
+# 4. Generate parcel BOUNDARIES per survey number (GeoJSON) for a village
+#    args: <village_code> <village_name> <output_dir>
+node scripts/generate-boundaries.mjs 006 Naduvakkarai ./out
 ```
+
+### Scripts
+
+| Script | Output |
+|---|---|
+| `extract-anna-nagar-east.mjs` | One locality -> two-sheet xlsx (survey numbers + all plots) |
+| `extract-chennai-district.mjs` | Whole district -> csv |
+| `extract-taluk-villages.mjs` | Every village in a taluk -> separate xlsx each + index |
+| `generate-boundaries.mjs` | One GeoJSON boundary file per survey number (opens in QGIS / Google Earth) |
 
 ## Scope & ethics
 
