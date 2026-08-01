@@ -1,0 +1,11 @@
+node_modules/
+*.log
+.DS_Store
+.vscode/
+.idea/
+*.swp
+.env
+.env.local
+
+# Each subfolder (ec-automation/, survey-numbers/) also has its own .gitignore
+# for tool-specific outputs (PDFs, results, CSV/XLSX, GeoJSON, fixtures).
