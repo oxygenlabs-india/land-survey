@@ -13,6 +13,17 @@ portal (captcha-gated, per-record), while `survey-numbers` uses only open,
 unauthenticated cadastral GIS data. See each subfolder's README for the full
 details, options, and verified results.
 
+## Product direction
+
+These extractors are the data foundation of a larger product: a single,
+parcel-centric map of Tamil Nadu land, assembled from scattered government
+records and given to citizens for free.
+
+- **[docs/ROADMAP.md](docs/ROADMAP.md)** — phase-wise plan and the current focus.
+  **We are in Phase 1 (Connectivity & Access).** Read this before building.
+- **[docs/GO-TO-MARKET.md](docs/GO-TO-MARKET.md)** — positioning, users, business
+  model, and the privacy constraints.
+
 ## Repository layout
 
 ```
