@@ -1,12 +1,22 @@
 {
-  "name": "survey-number-automation",
+  "name": "survey-numbers",
   "version": "1.0.0",
   "description": "Extract public cadastral survey numbers and parcel boundaries for Tamil Nadu from open TNGIS map services.",
   "type": "module",
   "scripts": {
     "anna-nagar-east": "node scripts/extract-anna-nagar-east.mjs AnnaNagarEast_SurveyNumbers.xlsx",
-    "chennai": "node scripts/extract-chennai-district.mjs chennai_survey_numbers.csv"
+    "chennai": "node scripts/extract-chennai-district.mjs chennai_survey_numbers.csv",
+    "taluk": "node scripts/extract-taluk-villages.mjs ./out",
+    "boundaries": "node scripts/generate-boundaries.mjs"
   },
+  "keywords": [
+    "cadastral",
+    "survey-number",
+    "tngis",
+    "tamil-nadu",
+    "open-data"
+  ],
+  "author": "",
   "engines": {
     "node": ">=18"
   },

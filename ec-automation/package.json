@@ -1,7 +1,7 @@
 {
-  "name": "land-record-parser",
+  "name": "ec-automation",
   "version": "1.0.0",
-  "description": "Parser and analyzer for Tamil Nadu Land Registry data from HAR files",
+  "description": "Tamil Nadu Encumbrance Certificate (EC) automation — solve captcha, download the EC PDF, parse to structured JSON.",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -12,16 +12,19 @@
   },
   "keywords": [
     "land-registry",
-    "har-parser",
+    "encumbrance-certificate",
+    "tnreginet",
     "tamil-nadu"
   ],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "axios": "^1.18.1",
     "axios-cookiejar-support": "^7.0.0",
     "ddddocr-node": "^2.3.0",
-    "fs": "^0.0.1-security",
     "pdf-parse": "^2.4.5",
     "sharp": "^0.35.3",
     "tough-cookie": "^6.0.2"

@@ -1,0 +1,19 @@
+{
+  "name": "land-survey",
+  "version": "1.0.0",
+  "description": "Tamil Nadu land & survey data tooling — EC automation + open cadastral survey-number extraction.",
+  "private": true,
+  "scripts": {
+    "install:all": "npm --prefix ec-automation install && npm --prefix survey-numbers install",
+    "ec": "npm --prefix ec-automation start",
+    "ec:dry": "npm --prefix ec-automation run dry",
+    "ec:probe": "npm --prefix ec-automation run probe",
+    "survey:anna-nagar-east": "npm --prefix survey-numbers run anna-nagar-east",
+    "survey:chennai": "npm --prefix survey-numbers run chennai",
+    "survey:taluk": "npm --prefix survey-numbers run taluk"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "SEE ec-automation (ISC) AND survey-numbers (MIT)"
+}

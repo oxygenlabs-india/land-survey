@@ -144,17 +144,16 @@ probe issues only the same requests a normal user would.
 ## Project structure
 
 ```
-landRecord/
+ec-automation/                    # this folder (inside the land-survey repo)
 ├── src/
 │   ├── config.js      # locations, survey numbers, paths, options
 │   ├── client.js      # tnreginet HTTP client (from HAR)
-│   ├── captcha.js     # sharp preprocess + tesseract OCR + voting
+│   ├── captcha.js     # sharp preprocess + ddddocr OCR + validate/retry
 │   ├── pdfParser.js   # EC PDF -> structured JSON  (core, verified)
 │   ├── probe.js       # live captcha-enforcement/reuse diagnostics
 │   └── index.js       # orchestrator (solve-once session) -> results.json
-├── Docs/              # sample EC PDF
-├── output/            # downloaded PDFs + results.json
-└── EncumbersnceCertificate.har   # captured reference session
+├── Docs/              # sample EC PDF (local fixture, git-ignored)
+└── output/            # downloaded PDFs + results.json (git-ignored)
 ```
 
 ## Known follow-ups
