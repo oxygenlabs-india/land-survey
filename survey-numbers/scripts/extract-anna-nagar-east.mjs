@@ -16,7 +16,7 @@ async function fetchAll(vcode) {
     const params = new URLSearchParams({
       service: 'WFS', version: '2.0.0', request: 'GetFeature', typeNames: LAYER,
       outputFormat: 'application/json', sortBy: 'id', count: '1000', startIndex: String(start),
-      propertyName: 'id,survey_number,sub_division,centroid',
+      propertyName: 'id,survey_number,sub_division',
       cql_filter: `lgd_district_code=568 AND taluk_code=5 AND village_code='${vcode}'`,
     });
     const j = JSON.parse(await (await fetch(`${OWS}?${params}`, { headers: HEADERS })).text());
@@ -39,8 +39,7 @@ async function run() {
     console.log(`  ${vname}: ${feats.length}`);
     for (const p of feats) {
       const sn = p.survey_number ?? '';
-      const [lat, lon] = (p.centroid || '').split(',');
-      plots.push({ vname, vcode, id: p.id, sn, sub: p.sub_division ?? '', lat: (lat||'').trim(), lon: (lon||'').trim() });
+      plots.push({ vname, vcode, id: p.id, sn, sub: p.sub_division ?? '' });
       const k = vname + '|' + sn;
       surveyAgg[k] = (surveyAgg[k] || 0) + 1;
     }
@@ -54,8 +53,8 @@ async function run() {
 
   // Sheet 2: all plots with unique parcel id
   plots.sort((a, b) => a.vname.localeCompare(b.vname) || num(a.sn) - num(b.sn) || a.id - b.id);
-  const s2h = ['S.No', 'Locality', 'Revenue Village', 'Village Code', 'Survey Number', 'Sub Division', 'Parcel ID (unique)', 'Latitude', 'Longitude'];
-  const s2 = plots.map((r, i) => [String(i+1), 'Anna Nagar East', r.vname, r.vcode, r.sn, r.sub, String(r.id), r.lat, r.lon]);
+  const s2h = ['S.No', 'Locality', 'Revenue Village', 'Village Code', 'Survey Number', 'Sub Division', 'Parcel ID (unique)'];
+  const s2 = plots.map((r, i) => [String(i+1), 'Anna Nagar East', r.vname, r.vcode, r.sn, r.sub, String(r.id)]);
 
   writeXlsx(OUT, [
     { name: 'Survey Numbers', headers: s1h, table: s1 },
